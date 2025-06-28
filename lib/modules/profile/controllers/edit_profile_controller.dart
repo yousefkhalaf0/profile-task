@@ -198,16 +198,25 @@ class EditProfileController extends GetxController {
         dateOfBirth: selectedDate.value,
       );
 
-      await FirebaseFirestore.instance
-          .collection('users')
-          .doc(userDocumentId)
-          .update(updatedUser.toFirestore());
+      await _profileService.updateUserProfile(userDocumentId, updatedUser);
 
-      _showSuccessSnackbar('Profile updated successfully');
-      Get.back();
-      log('hhhhhhhhhhhhhhhhhh');
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _showSuccessSnackbar('Profile updated successfully');
+
+        Future.delayed(const Duration(milliseconds: 900), () {
+          if (Get.isDialogOpen == false && Get.isBottomSheetOpen == false) {
+            Get.back();
+          }
+        });
+      });
+
+      log('Profile update process completed');
     } catch (e) {
-      _showErrorSnackbar('Failed to update profile: ${e.toString()}');
+      log('Error updating profile: $e');
+
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _showErrorSnackbar('Failed to update profile: ${e.toString()}');
+      });
     } finally {
       isUpdating.value = false;
     }

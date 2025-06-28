@@ -12,7 +12,7 @@ abstract class Styles {
   static TextStyle textStyle14(BuildContext context) {
     return TextStyle(
       fontSize: Helper.getResponsiveFontSize(context, fontSize: 14),
-      fontWeight: FontWeight.normal,
+      fontWeight: FontWeight.bold,
     );
   }
 

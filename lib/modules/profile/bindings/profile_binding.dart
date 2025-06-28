@@ -6,9 +6,12 @@ import 'package:ideasnconcepts/modules/profile/controllers/profile_controller.da
 class ProfileBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<ProfileController>(() => ProfileController());
+    Get.put<ProfileController>(ProfileController(), permanent: true);
 
-    Get.lazyPut<EditProfileController>(() => EditProfileController());
+    Get.lazyPut<EditProfileController>(
+      () => EditProfileController(),
+      fenix: true,
+    );
 
     Get.lazyPut<MyOrdersController>(() => MyOrdersController());
   }

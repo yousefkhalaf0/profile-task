@@ -10,6 +10,7 @@ import 'package:ideasnconcepts/core/helper.dart';
 import 'package:ideasnconcepts/core/widgets/custom_text.dart';
 import 'package:ideasnconcepts/data/services/profile_service.dart';
 import 'package:ideasnconcepts/data/models/user_model.dart';
+import 'package:ideasnconcepts/routes/app_routes.dart';
 import 'package:image_picker/image_picker.dart';
 
 class EditProfileController extends GetxController {
@@ -200,23 +201,11 @@ class EditProfileController extends GetxController {
 
       await _profileService.updateUserProfile(userDocumentId, updatedUser);
 
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        _showSuccessSnackbar('Profile updated successfully');
+      _showSuccessSnackbar('Profile updated successfully');
 
-        Future.delayed(const Duration(milliseconds: 900), () {
-          if (Get.isDialogOpen == false && Get.isBottomSheetOpen == false) {
-            Get.back();
-          }
-        });
-      });
-
-      log('Profile update process completed');
+      Get.offNamed(AppRoutes.profile);
     } catch (e) {
-      log('Error updating profile: $e');
-
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        _showErrorSnackbar('Failed to update profile: ${e.toString()}');
-      });
+      _showErrorSnackbar('Failed to update profile: ${e.toString()}');
     } finally {
       isUpdating.value = false;
     }

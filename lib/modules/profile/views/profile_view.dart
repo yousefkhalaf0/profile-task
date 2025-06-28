@@ -15,6 +15,7 @@ class ProfileView extends GetView<ProfileController> {
         context,
         title: kMyProfile,
         onEditPressed: controller.navigateToEditProfile,
+        onBackPressed: () {},
       ),
       body: SingleChildScrollView(child: ProfileViewBody()),
     );

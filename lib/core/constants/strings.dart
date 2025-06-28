@@ -12,3 +12,9 @@ const kHelp = 'Help';
 const kLogout = 'Logout';
 
 //edit_profile_view.dart
+const kSelectImageSource = 'Select Image Source';
+const kCamera = 'Camera';
+const kGallery = 'Gallery';
+const kCancel = 'Cancel';
+
+//orders_view.dart

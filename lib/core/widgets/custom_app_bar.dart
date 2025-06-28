@@ -22,28 +22,34 @@ AppBar CustomAppBar(
       padding: EdgeInsets.only(
         left: Helper.getResponsiveWidth(context, width: 20),
       ),
-      child: IconButton(
-        icon: Icon(
-          Icons.arrow_back,
-          color: kBlack,
-          size: Helper.getResponsiveWidth(context, width: 30),
-        ),
-        onPressed: onBackPressed ?? () {},
-      ),
+      child:
+          onBackPressed != null
+              ? IconButton(
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: kBlack,
+                  size: Helper.getResponsiveWidth(context, width: 30),
+                ),
+                onPressed: onBackPressed,
+              )
+              : SizedBox.shrink(),
     ),
     actions: [
       Padding(
         padding: EdgeInsets.only(
           right: Helper.getResponsiveWidth(context, width: 20),
         ),
-        child: IconButton(
-          icon: Icon(
-            Icons.edit,
-            color: kSalmon,
-            size: Helper.getResponsiveWidth(context, width: 30),
-          ),
-          onPressed: onEditPressed ?? () {},
-        ),
+        child:
+            onEditPressed != null
+                ? IconButton(
+                  icon: Icon(
+                    Icons.edit,
+                    color: kSalmon,
+                    size: Helper.getResponsiveWidth(context, width: 30),
+                  ),
+                  onPressed: onEditPressed,
+                )
+                : SizedBox.shrink(),
       ),
     ],
   );

@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -204,6 +205,7 @@ class EditProfileController extends GetxController {
 
       _showSuccessSnackbar('Profile updated successfully');
       Get.back();
+      log('hhhhhhhhhhhhhhhhhh');
     } catch (e) {
       _showErrorSnackbar('Failed to update profile: ${e.toString()}');
     } finally {

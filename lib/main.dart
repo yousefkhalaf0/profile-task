@@ -16,9 +16,9 @@ class ProfileTask extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: AppPages.initial,
       getPages: AppPages.routes,
-      debugShowCheckedModeBanner: false,
       home: ProfileView(),
     );
   }

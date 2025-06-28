@@ -17,32 +17,34 @@ class SqrcleButton extends GetView<EditProfileController> {
     return SizedBox(
       width: MediaQuery.sizeOf(context).width,
       height: Helper.getResponsiveHeight(context, height: 50),
-      child: ElevatedButton(
-        onPressed:
-            controller.isUpdating.value ? null : controller.updateProfile,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: kTerracotta,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
+      child: Obx(
+        () => ElevatedButton(
+          onPressed:
+              controller.isUpdating.value ? null : controller.updateProfile,
+          style: ElevatedButton.styleFrom(
+            backgroundColor: kTerracotta,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            elevation: 5,
           ),
-          elevation: 5,
-        ),
-        child:
-            controller.isUpdating.value
-                ? const SizedBox(
-                  width: 20,
-                  height: 20,
-                  child: CircularProgressIndicator(
-                    color: kWhite,
-                    strokeWidth: 2,
+          child:
+              controller.isUpdating.value
+                  ? const SizedBox(
+                    width: 20,
+                    height: 20,
+                    child: CircularProgressIndicator(
+                      color: kWhite,
+                      strokeWidth: 2,
+                    ),
+                  )
+                  : CustomText(
+                    text1: kUpdateProfile,
+                    defaultStyle: Styles.textStyle20(
+                      context,
+                    ).copyWith(color: kWhite, fontWeight: FontWeight.bold),
                   ),
-                )
-                : CustomText(
-                  text1: kUpdateProfile,
-                  defaultStyle: Styles.textStyle20(
-                    context,
-                  ).copyWith(color: kWhite, fontWeight: FontWeight.bold),
-                ),
+        ),
       ),
     );
   }

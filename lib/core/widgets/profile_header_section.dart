@@ -31,7 +31,7 @@ class ProfileHeaderSection extends GetView<EditProfileController> {
         ),
 
         Container(
-          margin: const EdgeInsets.only(top: 10, bottom: 45),
+          margin: const EdgeInsets.only(top: 10, bottom: 30),
           padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           width: MediaQuery.sizeOf(context).width,
           decoration: const BoxDecoration(color: kBeige),

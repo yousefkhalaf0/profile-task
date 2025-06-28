@@ -21,26 +21,26 @@ class ProfileViewBody extends GetView<ProfileController> {
       child: Center(
         child: Column(
           children: [
-            Obx(() {
-              controller.listenToProfileUpdates();
-              return ProfilePicture(
-                imageUrl:
-                    controller.profileImageUrl.value.isNotEmpty
-                        ? controller.profileImageUrl.value
-                        : null,
-              );
-            }),
-            CustomText(
-              text1: 'Yousef Khalaf',
-              defaultStyle: Styles.textStyle27(context).copyWith(color: kBlack),
-              overflow: TextOverflow.ellipsis,
+            Obx(
+              () => ProfilePicture(
+                imageUrl: controller.currentUser.value?.profilePicture,
+              ),
+            ),
+            Obx(
+              () => CustomText(
+                text1: controller.currentUser.value?.name ?? 'Loading...',
+                defaultStyle: Styles.textStyle27(
+                  context,
+                ).copyWith(color: kBlack),
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
             CustomText(
               defaultStyle: TextStyle(color: kBlack),
               overflow: TextOverflow.ellipsis,
               text1: kId,
               text1Style: Styles.textStyle14(context),
-              text2: '123456789',
+              text2: controller.userDocumentId,
               text2Style: Styles.textStyle14(
                 context,
               ).copyWith(fontWeight: FontWeight.normal),

@@ -57,7 +57,7 @@ class ProfileFormSection extends GetView<EditProfileController> {
             // Date of Birth Field
             BuildFieldLabel(context: context, label: kDateOfBirth),
             SpecificSidePadding(
-              bottomPadding: 30,
+              bottomPadding: 25,
               child: CustomTextFormField(
                 controller: controller.dobController,
                 isDatePicker: true,

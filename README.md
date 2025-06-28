@@ -241,7 +241,7 @@ Potential improvements for the application:
 ## 👨‍💻 Developer Information
 
 **Developed by**: Yousef Khalaf  
-**Email**: yousefkhalaf667@gmail.com  
+**Email**: yousef.mohamed.abdelhameed@gmail.com  
 **Purpose**: Ideas & Concepts Internship Application - Round 2  
 **Date**: June 2025
 

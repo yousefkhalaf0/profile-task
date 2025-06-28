@@ -16,5 +16,13 @@ const kSelectImageSource = 'Select Image Source';
 const kCamera = 'Camera';
 const kGallery = 'Gallery';
 const kCancel = 'Cancel';
+const kFullName = 'Full Name';
+const kEmail = 'Email';
+const kMobileNumber = 'Mobile Number';
+const kDateOfBirth = 'Date of Birth';
+const kGender = 'Gender';
+const kMale = 'Male';
+const kFemale = 'Female';
+const kUpdateProfile = 'Update Profile';
 
 //orders_view.dart

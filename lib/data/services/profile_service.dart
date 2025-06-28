@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloudinary_public/cloudinary_public.dart';
+import 'package:ideasnconcepts/data/models/user_model.dart';
 
 class ProfileService {
   static final ProfileService _instance = ProfileService._internal();
@@ -34,6 +35,37 @@ class ProfileService {
       return '';
     } catch (e) {
       log('Error loading profile picture: $e');
+      rethrow;
+    }
+  }
+
+  Future<UserModel?> getUserProfile(String userDocumentId) async {
+    try {
+      DocumentSnapshot doc =
+          await _firestore
+              .collection(usersCollection)
+              .doc(userDocumentId)
+              .get();
+
+      if (doc.exists) {
+        Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
+        return UserModel.fromFirestore(data);
+      }
+      return null;
+    } catch (e) {
+      log('Error loading user profile: $e');
+      rethrow;
+    }
+  }
+
+  Future<void> updateUserProfile(String userDocumentId, UserModel user) async {
+    try {
+      await _firestore
+          .collection(usersCollection)
+          .doc(userDocumentId)
+          .update(user.toFirestore());
+    } catch (e) {
+      log('Error updating user profile: $e');
       rethrow;
     }
   }

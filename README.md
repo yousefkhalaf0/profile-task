@@ -67,7 +67,7 @@ lib/
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/yourusername/ideasnconcepts.git
+   git clone https://github.com/yousefkhalaf0/ideasnconcepts.git
    cd ideasnconcepts
    ```
 

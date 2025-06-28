@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:ideasnconcepts/core/constants/colors.dart';
 import 'package:ideasnconcepts/core/constants/strings.dart';
 import 'package:ideasnconcepts/core/widgets/custom_button.dart';
 import 'package:ideasnconcepts/core/widgets/specific_side_padding.dart';
 import 'package:ideasnconcepts/core/widgets/symmetric_padding.dart';
 import 'package:ideasnconcepts/core/widgets/vertical_separator.dart';
+import 'package:ideasnconcepts/modules/profile/controllers/profile_controller.dart';
 
-class ButtonsContainer extends StatelessWidget {
+class ButtonsContainer extends GetView<ProfileController> {
   const ButtonsContainer({super.key});
 
   @override
@@ -25,15 +27,23 @@ class ButtonsContainer extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               CustomButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.navigateToEditProfile();
+                },
                 icon: Icons.person_3_outlined,
                 text: kProfile,
               ),
               VerticalSeparator(),
-              CustomButton(icon: Icons.favorite_outline, text: kWishList),
-              VerticalSeparator(),
               CustomButton(
                 onPressed: () {},
+                icon: Icons.favorite_outline,
+                text: kWishList,
+              ),
+              VerticalSeparator(),
+              CustomButton(
+                onPressed: () {
+                  controller.navigateToMyOrders();
+                },
                 icon: Icons.shopping_bag_outlined,
                 text: kMyOrders,
               ),

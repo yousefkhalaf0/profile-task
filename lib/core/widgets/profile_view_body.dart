@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:ideasnconcepts/core/constants/colors.dart';
 import 'package:ideasnconcepts/core/constants/strings.dart';
 import 'package:ideasnconcepts/core/constants/styles.dart';
@@ -7,8 +8,9 @@ import 'package:ideasnconcepts/core/widgets/custom_text.dart';
 import 'package:ideasnconcepts/core/widgets/profile_menu_options.dart';
 import 'package:ideasnconcepts/core/widgets/profile_picture.dart';
 import 'package:ideasnconcepts/core/widgets/symmetric_padding.dart';
+import 'package:ideasnconcepts/modules/profile/controllers/profile_controller.dart';
 
-class ProfileViewBody extends StatelessWidget {
+class ProfileViewBody extends GetView<ProfileController> {
   const ProfileViewBody({super.key});
 
   @override

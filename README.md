@@ -238,6 +238,14 @@ Potential improvements for the application:
 - **Multi-language Support**: Internationalization
 - **Dark Mode**: Theme switching
 
+---
+
+## Demo Video
+
+Watch the app in action: http://bit.ly/4nXb93W
+
+---
+
 ## 👨‍💻 Developer Information
 
 **Developed by**: Yousef Khalaf  
